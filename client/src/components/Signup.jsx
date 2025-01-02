@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const Signup = () => {
@@ -10,8 +9,6 @@ const Signup = () => {
     password: "",
     rememberMe: false,
   });
-
-  const navigate = useNavigate(); // For navigation
 
   // Handle input change
   const handleChange = (e) => {
@@ -27,16 +24,13 @@ const Signup = () => {
     e.preventDefault(); // Prevent default form submission behavior
     console.log("Form Data Submitted:", formData); // Log form data to console
 
+    // Send form data to the backend
     try {
-      // Send form data to the backend
       const response = await axios.post(
         "http://localhost:5000/signup",
         formData
       );
       console.log("Server Response:", response.data); // Log server response
-
-      // After successful submission, navigate to the signup route and pass form data
-      navigate("/signup", { state: { userDetails: formData } });
     } catch (error) {
       console.error("Error submitting form:", error);
     }
