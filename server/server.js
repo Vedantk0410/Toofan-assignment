@@ -13,7 +13,7 @@ console.log("Starting server...");
 // Middleware to handle JSON requests
 app.use(express.json());
 
-// Route: Respond with a message when accessing the root URL
+
 app.get("/", (req, res) => {
   res.send("This is the response from the Express server!");
 });
