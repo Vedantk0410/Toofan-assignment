@@ -1,5 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
+import Chat from "./Chat"; // Correctly importing the default export
 
 const Dashboard = () => {
   const location = useLocation();
@@ -11,15 +12,18 @@ const Dashboard = () => {
       flexDirection: "column",
       alignItems: "center",
       justifyContent: "center",
-      height: "100vh",
+      padding: "20px",
       backgroundColor: "#f4f4f4",
+      minHeight: "100vh",
     },
     card: {
       padding: "20px",
+      marginBottom: "20px",
       backgroundColor: "#fff",
       borderRadius: "8px",
       boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
       textAlign: "center",
+      width: "400px",
     },
     title: {
       fontSize: "24px",
@@ -40,6 +44,7 @@ const Dashboard = () => {
         <p style={styles.data}>Active Users: 50</p>
         <p style={styles.data}>Number of Logins: 130</p>
       </div>
+      <Chat />
     </div>
   );
 };
